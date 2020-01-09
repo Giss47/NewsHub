@@ -5,7 +5,13 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsHub", "NewsHub\NewsHub.csproj", "{9A35E714-82E0-4900-A067-1C5FB7B2A3BE}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "NewsHubShared", "NewsHubShared\NewsHubShared.shproj", "{E1D80705-0CA5-4268-91D7-B8A64C0E0FCF}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		NewsHubShared\NewsHubShared.projitems*{9a35e714-82e0-4900-a067-1c5fb7b2a3be}*SharedItemsImports = 4
+		NewsHubShared\NewsHubShared.projitems*{e1d80705-0ca5-4268-91d7-b8a64c0e0fcf}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM = Debug|ARM
 		Debug|ARM64 = Debug|ARM64
