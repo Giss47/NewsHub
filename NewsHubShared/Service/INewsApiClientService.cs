@@ -1,8 +1,4 @@
-﻿using NewsAPI.Constants;
-using NewsAPI.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using NewsAPI.Models;
 using System.Threading.Tasks;
 
 namespace NewsHubShared.Service

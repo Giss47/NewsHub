@@ -1,9 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NewsHubShared.Service;
+using NewsHubShared.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace NewsHubShared
 {
@@ -21,6 +20,7 @@ namespace NewsHubShared
         private static void ConfigureServices(HostBuilderContext ctx, IServiceCollection services)
         {
             services.AddTransient<INewsApiClientService, NewsApiClientService>();
+            services.AddTransient<NewsViewModel>();
         }
     }
 }

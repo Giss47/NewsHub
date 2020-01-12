@@ -4,11 +4,9 @@ using NewsAPI.Models;
 using NewsHubShared.Service;
 using ReactiveUI;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Reactive;
 using System.Reactive.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace NewsHubShared.ViewModels
@@ -35,9 +33,14 @@ namespace NewsHubShared.ViewModels
             LoadArticles = ReactiveCommand.Create(async () =>
             {
                 ArticlesResult articlesResult = await newsApiClientService.GetTopHeadlines(51);
+                if (Items.Count != 0)
+                {
+                    articleSource.Clear();                   
+                }
                 foreach (var article in articlesResult.Articles)
                 {
                     articleSource.Add(article);
+
                 }
             });
         }
