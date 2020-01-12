@@ -8,21 +8,21 @@ using System.Threading.Tasks;
 
 namespace NewsHubShared.Service
 {
-    public class NewsApiClientService
+    public class NewsApiClientService : INewsApiClientService
     {
         private readonly string ApiKey = "fa8852f23b41418d90be8028fc382b66";
 
-        public ArticlesResult GetTopHeadlines(Countries country)
+        public async Task<ArticlesResult> GetTopHeadlines(int countryId)
         {
             var newsApiClient = new NewsApiClient(ApiKey);
-            var articlesResponse = newsApiClient.GetTopHeadlinesAsync(new TopHeadlinesRequest
+            ArticlesResult articlesResponse = await newsApiClient.GetTopHeadlinesAsync(new TopHeadlinesRequest
             {
-                Country = country
+                Country = (Countries)countryId
             });
 
-            if (articlesResponse.Result.Status == Statuses.Ok)
+            if (articlesResponse.Status == Statuses.Ok)
             {
-                return articlesResponse.Result;
+                return articlesResponse;
             }
 
             return null;
