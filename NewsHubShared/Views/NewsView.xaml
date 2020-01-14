@@ -25,29 +25,46 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="100" />
                             <RowDefinition Height="*" />
-                            <RowDefinition Height="100" />
-                            <RowDefinition Height="100" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
                             <RowDefinition Height="100" />
                         </Grid.RowDefinitions>
-                        <TextBox x:Name="Title"
+                        <TextBlock x:Name="Title"
+                                 Style="{StaticResource TitleStyle}"
                                  Grid.Row="0"
                                  Text="{Binding Title}" />
                         <Image Source="{Binding UrlToImage}"
                                Stretch="Fill"
                                Grid.Row="1"
                                Grid.ColumnSpan="2" />
-                        <TextBox x:Name="Description"
+                        <TextBlock x:Name="Description"
                                  Grid.Row="2"
-                                 Text="{Binding Description}" />
+                                 Text="{Binding Description}"
+                                 Style="{StaticResource DescriptionStyle}" />
                         <StackPanel Orientation="Horizontal" Grid.Row="3">
-                            <TextBox x:Name="Date" Text="{Binding PublishedAt}" />
-                            <TextBox x:Name="Author" Text="{Binding Author}" />
-                            <TextBox x:Name="Source" Text="{Binding Source.Name}" />
+                            <TextBlock x:Name="Date"
+                                       Text="{Binding PublishedAt}"
+                                       Style="{StaticResource CaptionStyle}" />
+                            <TextBlock x:Name="Author"
+                                       Text="{Binding Author}"
+                                       Style="{StaticResource CaptionStyle}" />
+                            <TextBlock x:Name="Source"                                       
+                                       Text="{Binding Source.Name}"
+                                       Style="{StaticResource CaptionStyle}" />
                         </StackPanel>
                         <HyperlinkButton x:Name="Url"
                                          Grid.Row="4"
                                          NavigateUri="{Binding Url}"
-                                         Content="Full Article here" />
+                                         Content="Full article here"
+                                         Style="{StaticResource SourceStyle}">
+                            <ToolTipService.ToolTip>
+                                <ToolTip Content="{Binding Url}"
+                                         FontStyle="Italic"
+                                         Foreground="#960862" />
+                            </ToolTipService.ToolTip>
+                        </HyperlinkButton>
+                        <MenuFlyoutSeparator Foreground="Gray" Grid.Row="5"/>                        
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
