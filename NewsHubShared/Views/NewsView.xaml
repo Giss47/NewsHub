@@ -9,17 +9,48 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
         <Button x:Name="LoadNews"
+                Grid.Row="0"
                 Command="{x:Bind ViewModel.LoadArticles}"
-                Style="{StaticResource AccentButtonStyle}"
-                Width="100"
-                Height="40"
-                VerticalAlignment="Top"
-                Margin="20"
                 Content="Load News"
-                Background="DeepSkyBlue"
-                Opacity="0.5"
-                Foreground="Red"
-                CornerRadius="20" />
+                Style="{StaticResource LoadButton}" />
+        <ItemsControl ItemsSource="{x:Bind ViewModel.Items}" Grid.Row="1">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                        </Grid.RowDefinitions>
+                        <TextBox x:Name="Title"
+                                 Grid.Row="0"
+                                 Text="{Binding Title}" />
+                        <Image Source="{Binding UrlToImage}"
+                               Stretch="Fill"
+                               Grid.Row="1"
+                               Grid.ColumnSpan="2" />
+                        <TextBox x:Name="Description"
+                                 Grid.Row="2"
+                                 Text="{Binding Description}" />
+                        <StackPanel Orientation="Horizontal" Grid.Row="3">
+                            <TextBox x:Name="Date" Text="{Binding PublishedAt}" />
+                            <TextBox x:Name="Author" Text="{Binding Author}" />
+                            <TextBox x:Name="Source" Text="{Binding Source.Name}" />
+                        </StackPanel>
+                        <HyperlinkButton x:Name="Url"
+                                         Grid.Row="4"
+                                         NavigateUri="{Binding Url}"
+                                         Content="Full Article here" />
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Grid>
 </local:NewsViewBase>
