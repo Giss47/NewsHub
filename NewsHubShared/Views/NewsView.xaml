@@ -23,7 +23,7 @@
                 <DataTemplate>
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="100" />
+                            <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
@@ -35,6 +35,7 @@
                                  Grid.Row="0"
                                  Text="{Binding Title}" />
                         <Image Source="{Binding UrlToImage}"
+                               Style="{StaticResource NewsImage}"
                                Stretch="Fill"
                                Grid.Row="1"
                                Grid.ColumnSpan="2" />
@@ -47,11 +48,15 @@
                                        Text="{Binding PublishedAt}"
                                        Style="{StaticResource CaptionStyle}" />
                             <TextBlock x:Name="Author"
-                                       Text="{Binding Author}"
-                                       Style="{StaticResource CaptionStyle}" />
-                            <TextBlock x:Name="Source"                                       
-                                       Text="{Binding Source.Name}"
-                                       Style="{StaticResource CaptionStyle}" />
+                                       Style="{StaticResource CaptionStyle}">
+                            <Run>Author:</Run>
+                            <Run Text="{Binding Author}" />
+                            </TextBlock>
+                            <TextBlock x:Name="Source"
+                                       Style="{StaticResource CaptionStyle}">
+                                <Run>Source:</Run>
+                                <Run Text="{Binding Source.Name}" />
+                            </TextBlock>
                         </StackPanel>
                         <HyperlinkButton x:Name="Url"
                                          Grid.Row="4"
@@ -64,7 +69,7 @@
                                          Foreground="#960862" />
                             </ToolTipService.ToolTip>
                         </HyperlinkButton>
-                        <MenuFlyoutSeparator Foreground="Gray" Grid.Row="5"/>                        
+                        <MenuFlyoutSeparator Foreground="Gray" Grid.Row="5" />
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

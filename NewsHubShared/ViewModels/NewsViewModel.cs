@@ -35,12 +35,11 @@ namespace NewsHubShared.ViewModels
                 ArticlesResult articlesResult = await newsApiClientService.GetTopHeadlines(51);
                 if (Items.Count != 0)
                 {
-                    articleSource.Clear();                   
+                    articleSource.Clear();
                 }
                 foreach (var article in articlesResult.Articles)
                 {
                     articleSource.Add(article);
-
                 }
             });
         }

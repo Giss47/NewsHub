@@ -13,29 +13,38 @@
         <Setter Property="Opacity" Value="0.5" />
         <Setter Property="VerticalAlignment" Value="Top" />
     </Style>
-    
+
+    <Style TargetType="Image" x:Key="NewsImage">
+        <Setter Property="Margin" Value="70, 30" />
+    </Style>
+
     <Style TargetType="TextBlock" x:Key="TitleStyle" BasedOn="{StaticResource HeaderTextBlockStyle}">
         <Setter Property="Foreground" Value="#962408" />
         <Setter Property="Margin" Value="20" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="TextAlignment" Value="Justify" />
+        <Setter Property="Padding" Value="20" />
     </Style>
 
     <Style TargetType="TextBlock" x:Key="DescriptionStyle" BasedOn="{StaticResource SubheaderTextBlockStyle}">
-        <Setter Property="Margin" Value="20"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Margin" Value="20" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="TextAlignment" Value="Justify" />
+        <Setter Property="Padding" Value="20" />
     </Style>
 
     <Style TargetType="TextBlock" x:Key="CaptionStyle" BasedOn="{StaticResource CaptionTextBlockStyle}">
-        <Setter Property="Foreground" Value="#962408"/>
-        <Setter Property="FontWeight" Value="SemiLight"/>
-        <Setter Property="FontStyle" Value="Italic"/>
-        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Foreground" Value="#962408" />
+        <Setter Property="FontWeight" Value="SemiLight" />
+        <Setter Property="FontStyle" Value="Italic" />
+        <Setter Property="Margin" Value="10" />
+        <Setter Property="FontSize" Value="15" />
     </Style>
 
     <Style TargetType="HyperlinkButton" x:Key="SourceStyle">
-        <Setter Property="BorderBrush" Value="BlanchedAlmond"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="BorderBrush" Value="BlanchedAlmond" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="16" />
     </Style>
 </ResourceDictionary>
