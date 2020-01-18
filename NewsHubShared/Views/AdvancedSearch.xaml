@@ -1,0 +1,92 @@
+﻿<local:AdvancedSearchBase
+    x:Class="NewsHubShared.Views.AdvancedSearch"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NewsHubShared.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="#e8e8e8">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Button x:Name="LoadNews"
+                Command="{x:Bind ViewModel.SearchArticles}"
+                Content="Search"
+                Style="{StaticResource LoadButton}" />
+            <TextBox x:Name="SearchQ"
+                     PlaceholderText="Search here"
+                     Style="{StaticResource AdvancedSearchBox}"
+                     Text="{x:Bind ViewModel.Q, Mode=TwoWay}" />
+            <ComboBox x:Name="LangaugeSelect"
+                      Style="{StaticResource AdvancedSearchCombo}"
+                      Header="language"
+                      ItemsSource="{x:Bind ViewModel.LanguagiesList }"
+                      SelectedIndex="{x:Bind ViewModel.LanguageIndex, Mode=TwoWay}" />
+            <ComboBox x:Name="SortBy"
+                      Style="{StaticResource AdvancedSearchCombo}"
+                      Header="Sort By"
+                      ItemsSource="{x:Bind ViewModel.SortByList }"
+                      SelectedIndex="{x:Bind ViewModel.SortbyIndex, Mode=TwoWay}" />
+        </StackPanel>
+        <FlipView x:Name="Resutls"
+                  ItemsSource="{x:Bind ViewModel.Items}"
+                  Grid.Row="1"
+                  Margin="50"
+                  VerticalAlignment="top">
+            <FlipView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="500" />
+                            <RowDefinition Height="75" />
+                            <RowDefinition Height="75" />
+                            <RowDefinition Height="75" />
+                        </Grid.RowDefinitions>
+                        <TextBlock x:Name="Title"
+                                 Style="{StaticResource AdvancedSearchTitleStyle}"
+                                 Grid.Row="0"
+                                 Text="{Binding Title}" />
+                        <Image Source="{Binding UrlToImage}"
+                               Style="{StaticResource AdvancedSearchNewsImage}"
+                               Grid.Row="1"
+                               Grid.ColumnSpan="2" />
+                        <StackPanel Orientation="Horizontal"
+                                    Grid.Row="2"
+                                    HorizontalAlignment="Center">
+                            <TextBlock x:Name="Date"
+                                       Text="{Binding PublishedAt}"
+                                       Style="{StaticResource AdvancedSearchCaptionStyle}" />
+                            <TextBlock x:Name="Author"
+                                       Style="{StaticResource AdvancedSearchCaptionStyle}">
+                            <Run>Author:</Run>
+                            <Run Text="{Binding Author}" />
+                            </TextBlock>
+                            <TextBlock x:Name="Source"
+                                       Style="{StaticResource AdvancedSearchCaptionStyle}">
+                                <Run>Source:</Run>
+                                <Run Text="{Binding Source.Name}" />
+                            </TextBlock>
+                        </StackPanel>
+                        <HyperlinkButton x:Name="Url"
+                                         Grid.Row="3"
+                                         NavigateUri="{Binding Url}"
+                                         Content="Full article here"
+                                         Style="{StaticResource SourceStyle}">
+                            <ToolTipService.ToolTip>
+                                <ToolTip Content="{Binding Url}"
+                                         FontStyle="Italic"
+                                         Foreground="#960862" />
+                            </ToolTipService.ToolTip>
+                        </HyperlinkButton>
+                    </Grid>
+                </DataTemplate>
+            </FlipView.ItemTemplate>
+        </FlipView>
+    </Grid>
+</local:AdvancedSearchBase>

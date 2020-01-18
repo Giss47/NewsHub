@@ -16,6 +16,7 @@
                         IsSettingsVisible="False">
             <NavigationView.MenuItems>
                 <NavigationViewItem Icon="World" Content="News" Tag="News" />
+                <NavigationViewItem Icon="BrowsePhotos" Content="Search" Tag="Search" />
             </NavigationView.MenuItems>
             <ScrollViewer>
                 <Frame x:Name="ContentFrame" NavigationFailed="ContentFrame_NavigationFailed">

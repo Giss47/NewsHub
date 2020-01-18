@@ -14,7 +14,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Service\INewsApiClientService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\NewsApiClientService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Startup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AdvancedSearchViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\NewsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\AdvancedSearch.xaml.cs">
+      <DependentUpon>AdvancedSearch.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
@@ -23,7 +27,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)Resources\AdvancedSearchResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)Resources\NewsViewResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\AdvancedSearch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

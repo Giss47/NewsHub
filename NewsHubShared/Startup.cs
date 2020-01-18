@@ -21,6 +21,7 @@ namespace NewsHubShared
         {
             services.AddTransient<INewsApiClientService, NewsApiClientService>();
             services.AddTransient<NewsViewModel>();
+            services.AddTransient<AdvancedSearchViewModel>();
         }
     }
 }

@@ -1,0 +1,51 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NewsHubShared.Resources">
+
+    <Style TargetType="ComboBox" x:Key="AdvancedSearchCombo">
+        <Setter Property="Width" Value="100" />
+        <Setter Property="Margin" Value="10" />
+    </Style>
+
+    <Style TargetType="TextBox" x:Key="AdvancedSearchBox">
+        <Setter Property="Width" Value="200" />
+        <Setter Property="Margin" Value="10" />
+        <Setter Property="Height" Value="45" />
+    </Style>
+
+    <Style TargetType="Button" x:Key="AdvancedSearchButton" BasedOn="{StaticResource AccentButtonStyle}">
+        <Setter Property="Width" Value="100" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="Background" Value="Red" />
+        <Setter Property="Foreground" Value="Blue" />
+        <Setter Property="CornerRadius" Value="20" />
+        <Setter Property="Margin" Value="20" />
+        <Setter Property="Opacity" Value="0.5" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+    </Style>
+
+    <Style TargetType="Image" x:Key="AdvancedSearchNewsImage">
+        <Setter Property="Margin" Value="30, 30" />
+        <Setter Property="Stretch" Value="Fill" />
+        <Setter Property="Height" Value="500" />
+        <Setter Property="Width" Value="600" />
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="AdvancedSearchTitleStyle">
+        <Setter Property="Foreground" Value="#962408" />
+        <Setter Property="Margin" Value="20" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Padding" Value="20" />
+        <Setter Property="FontSize" Value="12" />
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="AdvancedSearchCaptionStyle">
+        <Setter Property="Foreground" Value="#962408" />
+        <Setter Property="FontWeight" Value="SemiLight" />
+        <Setter Property="FontStyle" Value="Italic" />
+        <Setter Property="Margin" Value="10, 0" />
+        <Setter Property="FontSize" Value="9" />
+    </Style>
+</ResourceDictionary>

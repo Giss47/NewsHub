@@ -19,12 +19,13 @@ namespace NewsHubShared.Views
         {
             this.InitializeComponent();
             string appName = Windows.ApplicationModel.Package.Current.DisplayName;
-            AppTitle.Text = appName;
+            AppTitle.Text = appName + " -- Powred by NewsAPI.org";
         }
 
         private readonly List<(string Tag, Type Page)> _pages = new List<(string Tag, Type Page)>
         {
-            ("News", typeof(NewsView))
+            ("News", typeof(NewsView)),
+            ("Search", typeof(AdvancedSearch))
         };
 
         private void ContentFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)
@@ -93,6 +94,10 @@ namespace NewsHubShared.Views
             {
                 case "News":
                     ContentFrame.Navigate(typeof(NewsView));
+                    break;
+
+                case "Search":
+                    ContentFrame.Navigate(typeof(AdvancedSearch));
                     break;
             }
         }
