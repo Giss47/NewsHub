@@ -15,7 +15,6 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Row="0">
             <Button x:Name="LoadNews"
-
                 Command="{x:Bind ViewModel.LoadArticles}"
                 Content="Load News"
                 Style="{StaticResource LoadButton}" />
