@@ -13,11 +13,17 @@
             <RowDefinition Height="100" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Button x:Name="LoadNews"
-                Grid.Row="0"
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Button x:Name="LoadNews"
+
                 Command="{x:Bind ViewModel.LoadArticles}"
                 Content="Load News"
                 Style="{StaticResource LoadButton}" />
+            <ComboBox x:Name="CountriesSelect"
+                      Header="Country"
+                      ItemsSource="{x:Bind ViewModel.countriesList }"
+                      SelectedIndex="{x:Bind ViewModel.CountryIndex, Mode=TwoWay}" />
+        </StackPanel>
         <ItemsControl ItemsSource="{x:Bind ViewModel.Items}" Grid.Row="1">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
