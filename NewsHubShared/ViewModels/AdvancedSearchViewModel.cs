@@ -53,7 +53,7 @@ namespace NewsHubShared.ViewModels
         public AdvancedSearchViewModel()
         {
             newsApiClientService = Startup.ServiceProvider.GetService<INewsApiClientService>();
-            FromDate = new DateTime(2020, 1, 1);
+            FromDate = DateTime.Today.AddMonths(-1);
             articleSource = new SourceList<Article>();
             LanguagiesList = Enum.GetNames(typeof(Languages)).Cast<string>().ToList();
             SortByList = Enum.GetNames(typeof(SortBys)).Cast<string>().ToList();
